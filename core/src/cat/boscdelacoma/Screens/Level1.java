@@ -1,5 +1,6 @@
 package cat.boscdelacoma.Screens;
 
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.audio.Music;
@@ -43,6 +44,7 @@ public class Level1 extends AbstractScreen {
     // Objecte que conté tots els cossos del joc als quals els aplica la simulació
     private World world;
     private ArrayList<Moneda> monedes;
+    private int contMonedes;
 
     /**
      * Objecte que dibuixa elements per debugar. Dibuixa linies al voltant dels
@@ -97,9 +99,17 @@ public class Level1 extends AbstractScreen {
         personatge = new Personatge(world);
         monedes = new ArrayList<Moneda>();
         monedes.add(new Moneda(world,2f,3f));
+        monedes.add(new Moneda(world,17f,2f));
+        monedes.add(new Moneda(world,33f,3f));
+        monedes.add(new Moneda(world,45f,4f));
+        monedes.add(new Moneda(world,74f,6f));
+        monedes.add(new Moneda(world,95f,5f));
+        monedes.add(new Moneda(world,119f,8f));
 
+
+        contMonedes = 0;
         // objecte que permet debugar les col·lisions
-        debugRenderer = new Box2DDebugRenderer();
+        //debugRenderer = new Box2DDebugRenderer();
 
 
 
@@ -181,8 +191,8 @@ public class Level1 extends AbstractScreen {
      */
     private void carregarMapa() {
         tiledMapHelper = new TiledMapHelper();
-        tiledMapHelper.setPackerDirectory("world/level1/packer");
-        tiledMapHelper.loadMap("world/level1/packer/level.tmx");
+        tiledMapHelper.setPackerDirectory("world/level2/packer");
+        tiledMapHelper.loadMap("world/level2/packer/level2.tmx");
         tiledMapHelper.prepareCamera(joc.getScreenWidth(), joc.getScreenHeight());
     }
 
@@ -254,8 +264,11 @@ public class Level1 extends AbstractScreen {
             if (moneda.isVisible())
                 moneda.draw(batch);
             else
-                i.remove();
+                contMonedes++;
         }
+        //carregar seguent món
+        /*if(monedes.size() == contMonedes)
+            ((Game)Gdx.app.getApplicationListener()).setScreen(new Level2(getGame()));*/
         //joc.getSkin().getFont("scoreFont").draw(batch, "0123", 10, 10);
 
         // finalitzar el lot: a partir d'aquest moment es dibuixa tot el que
@@ -269,9 +282,9 @@ public class Level1 extends AbstractScreen {
         // dibuixar els controls de pantalla
         stage.act();
         stage.draw();
-        debugRenderer.render(world, tiledMapHelper.getCamera().combined.scale(
+        /*debugRenderer.render(world, tiledMapHelper.getCamera().combined.scale(
                 JocDeTrons.PIXELS_PER_METRE, JocDeTrons.PIXELS_PER_METRE,
-                JocDeTrons.PIXELS_PER_METRE));
+                JocDeTrons.PIXELS_PER_METRE));*/
     }
 
 

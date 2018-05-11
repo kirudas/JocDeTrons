@@ -97,9 +97,18 @@ public class Level2 extends AbstractScreen {
         personatge = new Personatge(world);
         monedes = new ArrayList<Moneda>();
         monedes.add(new Moneda(world,2f,3f));
+        monedes.add(new Moneda(world,11f,2f));
+        monedes.add(new Moneda(world,22f,3f));
+        monedes.add(new Moneda(world,37f,3f));
+        monedes.add(new Moneda(world,63f,9f));
+        monedes.add(new Moneda(world,84f,4f));
+        monedes.add(new Moneda(world,89f,12f));
+        monedes.add(new Moneda(world,103f,12f));
+        monedes.add(new Moneda(world,109f,12f));
+        monedes.add(new Moneda(world,97f,5f));
 
         // objecte que permet debugar les col·lisions
-        debugRenderer = new Box2DDebugRenderer();
+        //debugRenderer = new Box2DDebugRenderer();
 
 
 
@@ -181,8 +190,8 @@ public class Level2 extends AbstractScreen {
      */
     private void carregarMapa() {
         tiledMapHelper = new TiledMapHelper();
-        tiledMapHelper.setPackerDirectory("world/level1/packer");
-        tiledMapHelper.loadMap("world/level1/packer/level.tmx");
+        tiledMapHelper.setPackerDirectory("world/level3/packer");
+        tiledMapHelper.loadMap("world/level3/packer/level3.tmx");
         tiledMapHelper.prepareCamera(joc.getScreenWidth(), joc.getScreenHeight());
     }
 
@@ -269,9 +278,9 @@ public class Level2 extends AbstractScreen {
         // dibuixar els controls de pantalla
         stage.act();
         stage.draw();
-        debugRenderer.render(world, tiledMapHelper.getCamera().combined.scale(
+        /*debugRenderer.render(world, tiledMapHelper.getCamera().combined.scale(
                 JocDeTrons.PIXELS_PER_METRE, JocDeTrons.PIXELS_PER_METRE,
-                JocDeTrons.PIXELS_PER_METRE));
+                JocDeTrons.PIXELS_PER_METRE));*/
     }
 
 

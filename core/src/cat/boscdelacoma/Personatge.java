@@ -18,7 +18,7 @@ import com.badlogic.gdx.physics.box2d.World;
 public class Personatge {
 
     //<editor-fold desc="Constants">
-    public static final int FRAME_COLS = 9;
+    public static final int FRAME_COLS = 8;
     public static final int FRAME_ROWS = 2;
     //</editor-fold>
 
@@ -58,10 +58,10 @@ public class Personatge {
 
     //<editor-fold desc="Mètordes privats">
     private void carregarTextures() {
-        animatedTexture = new Texture(Gdx.files.internal("imatges/warriorSpriteSheet.png"));
+        animatedTexture = new Texture(Gdx.files.internal("imatges/batmanSpriteSheet.png"));
         animatedTexture.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
 
-        stoppedTexture = new Texture(Gdx.files.internal("imatges/warrior.png"));
+        stoppedTexture = new Texture(Gdx.files.internal("imatges/batman.png"));
         stoppedTexture.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
     }
 
@@ -126,6 +126,11 @@ public class Personatge {
         spriteAnimat.setPosition(spritePersonatge.getX(), spritePersonatge.getY());
     }
 
+    public void resetPosition(){
+
+        updatePosition();
+    }
+
     public void dibuixar(SpriteBatch batch) {
         spriteAnimat.draw(batch);
     }
@@ -165,7 +170,7 @@ public class Personatge {
         }
 
         if (ferSalt && Math.abs(cos.getLinearVelocity().y) < 1e-9) {
-            cos.applyLinearImpulse(new Vector2(0.0f, 3.0f),
+            cos.applyLinearImpulse(new Vector2(0.0f, 5.0f),
                     cos.getPosition(), true);
             idSoSalt = soSalt.play();
             //punts++;

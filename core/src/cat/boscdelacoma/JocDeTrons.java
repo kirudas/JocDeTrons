@@ -25,8 +25,8 @@ public class JocDeTrons extends Game {
 	 */
 	public static final float PIXELS_PER_METRE = 90.0f;
 
-	public static final int WIDTH = 600;
-	public static final int HEIGHT = 320;
+	public static final int WIDTH = 2600;
+	public static final int HEIGHT = 1480;
 	//</editor-fold>
 
 	//<editor-fold desc="Atributs">
