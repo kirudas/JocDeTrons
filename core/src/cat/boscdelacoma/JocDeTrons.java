@@ -42,6 +42,7 @@ public class JocDeTrons extends Game {
 	private int screenHeight;
 
 	private BitmapFont scoreFont;
+	private BitmapFont videsFont;
 	private BitmapFont defaultFont;
 	//</editor-fold>
 
@@ -84,6 +85,7 @@ public class JocDeTrons extends Game {
 		if(Gdx.app.getType() == Application.ApplicationType.Android) {
 			skin.getFont("defaultFont").getData().setScale(Gdx.graphics.getDensity(), Gdx.graphics.getDensity());
 			skin.getFont("scoreFont").getData().setScale(Gdx.graphics.getDensity(), Gdx.graphics.getDensity());
+			skin.getFont("videsFont").getData().setScale(Gdx.graphics.getDensity(), Gdx.graphics.getDensity());
 		}
 
 		// començar el joc amb la SplashScreen
@@ -162,6 +164,8 @@ public class JocDeTrons extends Game {
 		params.borderWidth = 1;
 		params.color = Color.WHITE;
 		scoreFont = gen.generateFont(params);
+		params.color = Color.RED;
+		videsFont = gen.generateFont(params);
 		gen.dispose();
 
 		gen = new FreeTypeFontGenerator(Gdx.files.internal("fonts/Game of Thrones.ttf"));
@@ -182,6 +186,7 @@ public class JocDeTrons extends Game {
 		skin = new Skin();
 		// add colors
 		Color yellow = new Color(1, 0.75f, 0, 1);
+		Color red = new Color(1, 0f, 0, 1);
 		Color green =  new Color(0, 1, 0, 1);
 		Color white =  new Color(1, 1, 1, 1);
 
@@ -189,9 +194,11 @@ public class JocDeTrons extends Game {
 		skin.add("green", green, Color.class);
 		skin.add("yellow", yellow, Color.class);
 		skin.add("white", white, Color.class);
+		skin.add("red", red, Color.class);
 
 		// add fonts
 		skin.add("scoreFont", scoreFont, BitmapFont.class);
+		skin.add("videsFont", videsFont, BitmapFont.class);
 		//defaultFont = new BitmapFont(Gdx.files.internal("fonts/fontGoT.fnt"));
 		skin.add("defaultFont", defaultFont, BitmapFont.class);
 
@@ -199,6 +206,7 @@ public class JocDeTrons extends Game {
 		skin.add("defaultStyle", new Label.LabelStyle(defaultFont, green ), Label.LabelStyle.class);
 		skin.add("yellowStyle", new Label.LabelStyle(defaultFont, yellow ), Label.LabelStyle.class);
 		skin.add("scoreStyle", new Label.LabelStyle(scoreFont, yellow), Label.LabelStyle.class);
+		skin.add("videsStyle", new Label.LabelStyle(videsFont, red), Label.LabelStyle.class);
 		skin.add("buttonStyle", new TextButton.TextButtonStyle(null, null, null, defaultFont), TextButton.TextButtonStyle.class);
 	}
 	//</editor-fold>

@@ -43,6 +43,7 @@ public class Personatge {
     private long idSoSalt;
 
     private long punts;
+    private long vides;
     //</editor-fold>
 
     //<editor-fold desc="Constructors">
@@ -53,6 +54,7 @@ public class Personatge {
         carregarSons();
         crearProtagonista();
         punts = 0;
+        vides = 3;
     }
     //</editor-fold>
 
@@ -124,10 +126,15 @@ public class Personatge {
                 JocDeTrons.PIXELS_PER_METRE * cos.getPosition().y
                         - spritePersonatge.getHeight() / FRAME_ROWS / 2);
         spriteAnimat.setPosition(spritePersonatge.getX(), spritePersonatge.getY());
+        if (cos.getPosition().y < 1f){
+            resetPosition();
+        }
     }
 
     public void resetPosition(){
-
+        vides--;
+        crearProtagonista();
+        inicialitzarMoviments();
         updatePosition();
     }
 
@@ -257,6 +264,8 @@ public class Personatge {
     }
 
     public void afegirPunt(){this.punts++;}
+
+    public long getVides(){return vides;}
 
     //</editor-fold>
 

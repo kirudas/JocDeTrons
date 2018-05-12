@@ -63,6 +63,7 @@ public class Level1 extends AbstractScreen {
     // Per mostrar el títol
     private Label title;
     private Label score;
+    private Label vides;
 
     private Table table = new Table();
 
@@ -78,7 +79,7 @@ public class Level1 extends AbstractScreen {
 
         //title = new Label(joc.getTitol(),joc.getSkin(), "groc");
         score = new Label("0123", joc.getSkin(), "scoreStyle");
-
+        vides = new Label("0",joc.getSkin(),"videsStyle");
 
 		/*
 		 * Crear el mon on es desenvolupa el joc.
@@ -276,6 +277,7 @@ public class Level1 extends AbstractScreen {
         batch.end();
 
         score.setText(Long.toString(personatge.getPunts()));
+        vides.setText(Long.toString(personatge.getVides()));
 
         calculRedimensionat();
 
@@ -302,6 +304,7 @@ public class Level1 extends AbstractScreen {
         // El primer apareix a la part superior, el darrer a la part inferior.
         table.left().top();
         table.add(score).pad(10);
+        table.add(vides).pad(15);
         table.setFillParent(true);
         stage.addActor(table);
     }
