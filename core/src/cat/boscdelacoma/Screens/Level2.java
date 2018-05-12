@@ -97,15 +97,16 @@ public class Level2 extends AbstractScreen {
         personatge = new Personatge(world);
         monedes = new ArrayList<Moneda>();
         monedes.add(new Moneda(world,2f,3f));
-        monedes.add(new Moneda(world,11f,2f));
-        monedes.add(new Moneda(world,22f,3f));
-        monedes.add(new Moneda(world,37f,3f));
-        monedes.add(new Moneda(world,63f,9f));
-        monedes.add(new Moneda(world,84f,4f));
-        monedes.add(new Moneda(world,89f,12f));
-        monedes.add(new Moneda(world,103f,12f));
-        monedes.add(new Moneda(world,109f,12f));
-        monedes.add(new Moneda(world,97f,5f));
+        monedes.add(new Moneda(world,16f,2f));
+        monedes.add(new Moneda(world,32f,3f));
+        monedes.add(new Moneda(world,53.5f,3f));
+        monedes.add(new Moneda(world,78.5f,9f));
+        monedes.add(new Moneda(world,98.5f,12f));
+        monedes.add(new Moneda(world,115f,4f));
+        monedes.add(new Moneda(world,120f,5f));
+        monedes.add(new Moneda(world,139f,5f));
+        monedes.add(new Moneda(world,145f,16f));
+        monedes.add(new Moneda(world,164.5f,4f));
 
         // objecte que permet debugar les col·lisions
         //debugRenderer = new Box2DDebugRenderer();
@@ -244,7 +245,7 @@ public class Level2 extends AbstractScreen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         // Color de fons marro
-        Gdx.gl.glClearColor(185f / 255f, 122f / 255f, 87f / 255f, 0);
+        Gdx.gl.glClearColor(40f / 255f, 23f / 255f, 61f / 255f, 0);
 
         moureCamera();
 

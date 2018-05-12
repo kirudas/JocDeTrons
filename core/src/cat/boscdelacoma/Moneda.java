@@ -22,6 +22,8 @@ public class Moneda {
     //<editor-fold desc="Constants">
     public static final int FRAME_COLS = 10;
     public static final int FRAME_ROWS = 1;
+    public static final float REL_MONEDA_MAPA = 4; // la mida de la moneda es de 32px i els quadrats
+                                                    // del mapa es de 128px
     //</editor-fold>
 
     private World world;                // Referència al mon on està definit el personatge

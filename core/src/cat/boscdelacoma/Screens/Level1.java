@@ -99,12 +99,12 @@ public class Level1 extends AbstractScreen {
         personatge = new Personatge(world);
         monedes = new ArrayList<Moneda>();
         monedes.add(new Moneda(world,2f,3f));
-        monedes.add(new Moneda(world,17f,2f));
-        monedes.add(new Moneda(world,33f,3f));
-        monedes.add(new Moneda(world,45f,4f));
-        monedes.add(new Moneda(world,74f,6f));
-        monedes.add(new Moneda(world,95f,5f));
-        monedes.add(new Moneda(world,119f,8f));
+        monedes.add(new Moneda(world,25f,2f));
+        monedes.add(new Moneda(world,47.5f,3f));
+        monedes.add(new Moneda(world,59f,5f));
+        monedes.add(new Moneda(world,84f,6f));
+        monedes.add(new Moneda(world,120f,5f));
+        monedes.add(new Moneda(world,165f,9f));
 
 
         contMonedes = 0;
@@ -245,7 +245,7 @@ public class Level1 extends AbstractScreen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         // Color de fons marro
-        Gdx.gl.glClearColor(185f / 255f, 122f / 255f, 87f / 255f, 0);
+        Gdx.gl.glClearColor(22f / 255f, 46f / 255f, 26f / 255f, 0);
 
         moureCamera();
 
