@@ -5,10 +5,12 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 
@@ -80,7 +82,6 @@ public class Level1 extends AbstractScreen {
         //title = new Label(joc.getTitol(),joc.getSkin(), "groc");
         score = new Label("0123", joc.getSkin(), "scoreStyle");
         vides = new Label("0",joc.getSkin(),"videsStyle");
-
 		/*
 		 * Crear el mon on es desenvolupa el joc.
 		 * S'indica la gravetat: negativa perquè indica cap avall
@@ -225,6 +226,10 @@ public class Level1 extends AbstractScreen {
         tractarEventsEntrada();
         personatge.moure();
         personatge.updatePosition();
+        if (personatge.getVides() <= 0){
+            //getGame().setScreen(new GameOver(getGame()));
+            Gdx.app.exit();
+        }
         /**
          * Cal actualitzar les posicions i velocitats de tots els objectes. El
          * primer paràmetre és la quanitat de frames/segon que dibuixaré

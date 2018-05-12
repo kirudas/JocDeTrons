@@ -226,6 +226,10 @@ public class Level2 extends AbstractScreen {
         tractarEventsEntrada();
         personatge.moure();
         personatge.updatePosition();
+        if (personatge.getVides() <= 0){
+            //getGame().setScreen(new GameOver(getGame()));
+            Gdx.app.exit();
+        }
         /**
          * Cal actualitzar les posicions i velocitats de tots els objectes. El
          * primer paràmetre és la quanitat de frames/segon que dibuixaré
